@@ -55,15 +55,32 @@
             animation: dots 1.5s infinite;
         }
 
-        /* BODY & BACKGROUND */
+        /* BODY & BACKGROUND WITH YOUR IMAGE */
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #2c1f3d, #1a1a2e, #0a0a0a);
+            /* REPLACE 'banner.jpg' WITH YOUR IMAGE FILENAME OR IMGUR URL */
+            background: url('banner.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
+        /* Dark overlay for better text readability */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Subtle Static Overlay */
         body::before {
             content: '';
             position: fixed;
@@ -71,7 +88,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 3px);
+            background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.02) 1px, transparent 1px, transparent 3px);
             pointer-events: none;
             z-index: 1000;
             opacity: 0.3;
@@ -110,6 +127,52 @@
             z-index: 10;
         }
 
+        /* HERO BANNER SECTION */
+        .hero-banner {
+            /* REPLACE 'banner.jpg' WITH YOUR IMAGE FILENAME OR IMGUR URL */
+            background: url('banner.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 30px;
+            padding: 0;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            border: 3px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .banner-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Righteous', sans-serif;
+            color: #39FF14;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #39FF14;
+        }
+
+        .banner-subtitle {
+            font-size: 1.2rem;
+            color: #fff;
+            font-style: italic;
+        }
+
         /* WHY $FINAL SECTION */
         .why-section {
             display: grid;
@@ -120,10 +183,11 @@
         }
 
         .why-text {
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.7);
             padding: 40px;
             border-radius: 20px;
             border: 2px solid rgba(57,255,20,0.3);
+            backdrop-filter: blur(10px);
         }
 
         .why-text h2 {
@@ -138,7 +202,7 @@
             font-size: 1.05rem;
             line-height: 1.9;
             color: #ddd;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.5);
             padding: 25px;
             border-radius: 15px;
             border-left: 4px solid #39FF14;
@@ -146,12 +210,13 @@
 
         /* HERO BANNER PREVIEW */
         .hero-preview {
-            background: linear-gradient(135deg, #2c1f3d, #1a1a2e);
+            background: linear-gradient(135deg, rgba(44, 31, 61, 0.95), rgba(26, 26, 46, 0.95));
             border-radius: 25px;
             padding: 40px 30px;
-            border: 3px solid rgba(255,255,255,0.1);
+            border: 3px solid rgba(255,255,255,0.2);
             box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .preview-title {
@@ -167,8 +232,8 @@
             margin: 20px auto;
             border-radius: 50%;
             background: linear-gradient(135deg, #FFD700, #FF6B6B);
-            border: 6px solid #39FF14;
-            box-shadow: 0 0 40px #39FF14;
+            border: 6px solid #000;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -184,8 +249,8 @@
         .preview-ticker {
             font-size: 2rem;
             font-weight: 900;
-            color: #39FF14;
-            text-shadow: 0 0 15px #39FF14;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
             margin: 20px 0 10px 0;
             font-family: 'Righteous', sans-serif;
         }
@@ -234,9 +299,10 @@
             font-family: 'Righteous', sans-serif;
             margin-bottom: 40px;
             padding: 20px;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.7);
             border-radius: 15px;
-            border: 2px solid rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
         }
 
         .stats-grid {
@@ -246,7 +312,7 @@
         }
 
         .stat-card {
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
@@ -256,12 +322,13 @@
             text-decoration: none;
             color: #fff;
             display: block;
+            backdrop-filter: blur(10px);
         }
 
         .stat-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 50px rgba(57,255,20,0.5);
-            background: rgba(57,255,20,0.1);
+            background: rgba(57,255,20,0.2);
         }
 
         .stat-number {
@@ -349,7 +416,7 @@
         }
 
         .article-image {
-            width: 100%; 
+            width: 100%;
             height: 200px;
             background-size: cover;
             background-position: center;
@@ -403,10 +470,11 @@
         /* BROKEOLOGY 101 */
         .meme-section {
             margin: 60px 0;
-            background: #000;
+            background: rgba(0,0,0,0.8);
             padding: 50px 30px;
             border-radius: 30px;
-            border: 3px solid rgba(255,255,255,0.1);
+            border: 3px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
         }
 
         .meme-header {
@@ -436,7 +504,7 @@
             background: rgba(255,255,255,0.05);
             border-radius: 20px;
             overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
             transition: all 0.3s;
         }
 
@@ -479,7 +547,7 @@
             align-items: center;
             gap: 15px;
             padding: 20px 40px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
             border: 3px solid #39FF14;
             border-radius: 15px;
             color: #fff;
@@ -488,10 +556,11 @@
             font-size: 1.2rem;
             transition: all 0.3s;
             text-transform: uppercase;
+            backdrop-filter: blur(10px);
         }
 
         .social-btn:hover {
-            background: rgba(57,255,20,0.2);
+            background: rgba(57,255,20,0.3);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(57,255,20,0.4);
         }
@@ -500,7 +569,10 @@
             text-align: center;
             padding: 40px 20px;
             font-size: 1rem;
-            color: #888;
+            color: #ccc;
+            background: rgba(0,0,0,0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         /* MOBILE */
@@ -520,6 +592,14 @@
         }
 
         @media (max-width: 768px) {
+            .hero-banner {
+                min-height: 300px;
+            }
+
+            .banner-title {
+                font-size: 1.8rem;
+            }
+
             .why-text h2 {
                 font-size: 2rem;
             }
@@ -554,6 +634,16 @@
     <div class="stars" id="stars"></div>
 
     <div class="container">
+        <!-- HERO BANNER WITH YOUR IMAGE -->
+        <div class="hero-banner">
+            <!-- REPLACE 'banner.jpg' WITH YOUR IMAGE FILENAME OR IMGUR URL -->
+            <img src="banner.jpg" alt="Final Semester Banner" class="banner-image">
+            <div class="banner-overlay">
+                <div class="banner-title">$FINAL</div>
+                <div class="banner-subtitle">one last try before i start working 2 jobs</div>
+            </div>
+        </div>
+
         <!-- WHY $FINAL SECTION -->
         <div class="why-section">
             <div class="why-text">
@@ -565,6 +655,7 @@
 
             <div class="hero-preview">
                 <h1 class="preview-title">FINAL SEMESTER</h1>
+                <!-- TO ADD YOUR COIN IMAGE: Replace with url('coin.png') or Imgur URL -->
                 <div class="preview-coin">🎓💰</div>
                 <div class="preview-ticker">$FINAL</div>
                 <p class="preview-tagline">The Coin for Every Student Fighting the System</p>
@@ -579,19 +670,16 @@
         <div class="stats-section">
             <div class="section-header">💥 THE NUMBERS DON'T LIE 💥</div>
             <div class="stats-grid">
-                <!-- STAT 1 - CLICKABLE -->
                 <a href="https://www.weforum.org/stories/2025/08/student-debt-tsunami-global-economy/" class="stat-card" target="_blank">
                     <div class="stat-number">$1.8T</div>
                     <div class="stat-label">Total Student Debt</div>
                 </a>
 
-                <!-- STAT 2 - CLICKABLE -->
                 <a href="https://www.cbsnews.com/news/layoffs-2025-highest-level-since-2020-labor-market-jobs-report/" class="stat-card" target="_blank">
                     <div class="stat-number">950K+</div>
                     <div class="stat-label">Job Cuts in 2025</div>
                 </a>
 
-                <!-- STAT 3 - CLICKABLE -->
                 <a href="https://www.fool.com/research/student-loan-debt-statistics/" class="stat-card" target="_blank">
                     <div class="stat-number">$39K</div>
                     <div class="stat-label">Average Student Debt</div>
@@ -697,12 +785,12 @@
         <div class="socials-section">
             <div class="section-header">🌐 CONNECT & TRADE 🌐</div>
             <div class="socials-grid">
-                <!-- TO UPDATE: Add your X URL - Replace # with https://x.com/YOUR_USERNAME -->
+                <!-- TO UPDATE: Add your X URL -->
                 <a href="#" class="social-btn" target="_blank">
                     <span>𝕏</span>
                     <span>X/TWITTER</span>
                 </a>
-                <!-- TO UPDATE: Add your DexScreener URL - Replace # with https://dexscreener.com/solana/YOUR_TOKEN_ADDRESS -->
+                <!-- TO UPDATE: Add your DexScreener URL -->
                 <a href="#" class="social-btn" target="_blank">
                     <span>📊</span>
                     <span>DEXSCREENER</span>
