@@ -12,7 +12,7 @@
             --secondary-color: #FF1744; /* Bright Red */
             --text-color: #FFFFFF;
             --background-dark: #0A0A0A;
-            --background-translucent: rgba(0, 0, 0, 0.75); /* New translucent background */
+            --background-translucent: rgba(0, 0, 0, 0.75); /* Translucent dark background */
         }
 
         * {
@@ -21,7 +21,7 @@
             box-sizing: border-box;
         }
 
-        /* --- NEW: Body Background Styling --- */
+        /* --- Body Background (Using image_e8ea00.jpg) --- */
         body {
             font-family: 'Fira Sans', sans-serif;
             color: var(--text-color);
@@ -29,23 +29,23 @@
             overflow-x: hidden;
             position: relative;
             
-            /* Background Image (Using Image 2: image_e8ea00.jpg) */
-            background-image: url('banner.jpg'); 
+            /* Background Image (Using image_e8ea00.jpg as the continuous background) */
+            background-image: url('image_e8ea00.jpg'); 
             background-size: cover; 
             background-attachment: fixed; 
             background-position: center center;
             
             /* Overlay for readability */
             background-blend-mode: overlay; 
-            background-color: rgba(0, 0, 0, 0.6); /* Adjust transparency here (0.6 is 60%) */
+            background-color: rgba(0, 0, 0, 0.6); 
         }
 
-        /* --- Background Effects (Removed Stars) --- */
+        /* --- Background Effects (Stars hidden) --- */
         #stars {
-            display: none; /* Hidden to allow the image background to show */
+            display: none; 
         }
 
-        /* --- Loading Screen (Optional but good practice) --- */
+        /* --- UPDATED: Loading Screen --- */
         #loadingScreen {
             position: fixed;
             top: 0;
@@ -58,13 +58,22 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            font-family: 'Righteous', cursive;
+            text-align: center;
         }
 
         .loader-text {
-            color: var(--primary-color);
+            color: var(--text-color); /* White */
             font-size: 2em;
-            text-shadow: 0 0 10px var(--primary-color);
+            font-family: 'Righteous', cursive;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+            margin-bottom: 20px;
+        }
+
+        .loader-subtitle {
+            color: var(--text-color); /* White */
+            font-size: 1.2em;
+            font-family: 'Fira Sans', sans-serif;
+            opacity: 0.8;
             animation: pulse 1s infinite alternate;
         }
 
@@ -80,7 +89,7 @@
             padding: 20px;
         }
 
-        /* New translucent backgrounds for all content sections */
+        /* Translucent backgrounds for all content sections */
         .hero-preview,
         .meme-section,
         .stats-section .stat-card,
@@ -89,9 +98,10 @@
         .how-to-buy .step-card,
         .socials-section .social-btn {
             background: var(--background-translucent); 
-            backdrop-filter: blur(4px); /* Frosted glass effect */
+            backdrop-filter: blur(4px);
             border: 1px solid rgba(57, 255, 20, 0.4); 
             box-shadow: 0 0 15px rgba(57, 255, 20, 0.3); 
+            transition: all 0.3s;
         }
 
         .section-header {
@@ -100,18 +110,12 @@
             text-align: center;
             margin-bottom: 40px;
             color: var(--primary-color);
-            text-shadow: 0 0 8px var(--primary-color); /* Softer shadow for headers */
+            text-shadow: 0 0 8px var(--primary-color);
             padding-bottom: 10px;
             border-bottom: 2px solid var(--primary-color);
             display: block;
             width: fit-content;
             margin: 0 auto 40px auto;
-        }
-
-        /* Adjust titles within sections */
-        .meme-title, .why-text h2, .step-title, .article-title {
-            color: var(--primary-color);
-            text-shadow: none; 
         }
 
         /* --- 1. Banner --- */
@@ -128,10 +132,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* No filter/blur for proper visibility */
         }
 
-        /* --- UPDATED: Banner Title Specifics (Top Center) --- */
+        /* Banner Title Specifics (Top Center) */
         .banner-title {
             position: absolute; 
             top: 20px; 
@@ -141,7 +144,7 @@
             
             font-family: 'Righteous', cursive;
             font-size: 3em; 
-            color: #333; /* Darker color for simplicity */
+            color: #333; /* Simple dark color */
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8), 
                          -2px -2px 5px rgba(255, 255, 255, 0.8);
             text-align: center;
@@ -158,6 +161,19 @@
             padding: 40px;
             border-radius: 10px;
             text-align: center;
+        }
+
+        /* Coin Image Style */
+        .coin-image-container {
+            margin: 20px auto;
+            width: 100%;
+            max-width: 300px; 
+        }
+        .coin-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px var(--secondary-color);
         }
         
         .preview-title {
@@ -230,7 +246,7 @@
         /* Game specific adjustments */
         #gameCanvas {
             border: 5px solid var(--primary-color);
-            background-color: #f0f0f0; /* Keep the canvas background light for game elements */
+            background-color: #f0f0f0; 
             margin: 20px auto;
             display: block;
             border-radius: 5px;
@@ -320,7 +336,7 @@
             background-position: center;
         }
 
-        /* Placeholder Images: Renamed to match uploaded files */
+        /* Placeholder Images */
         .debt-img { background-image: url('image_5e3641.png'); } 
         .layoffs-img { background-image: url('WhatsApp Image 2025-11-04 at 19.45.01_6e5dca45.jpg'); } 
         .jobs-img { background-image: url('image_3834fb.png'); } 
@@ -403,7 +419,7 @@
             margin-top: 40px;
             font-size: 0.9em;
             color: #777;
-            background-color: rgba(0, 0, 0, 0.8); /* Dark background for footer */
+            background-color: rgba(0, 0, 0, 0.8); 
         }
 
         /* --- Responsive Design --- */
@@ -422,7 +438,8 @@
     <div id="stars"></div>
 
     <div id="loadingScreen">
-        <div class="loader-text">LOADING $FINAL</div>
+        <div class="loader-text">Final Semester</div>
+        <div class="loader-subtitle">One Last Try Before I Start Working 2 Jobs</div>
     </div>
 
     <div class="container">
@@ -436,12 +453,18 @@
         <div class="why-section">
             <div class="hero-preview full-width">
                 <div class="section-header">💵 $FINAL COIN DETAILS 💵</div>
+                
                 <h1 class="preview-title">WHY $FINAL</h1>
-                <div class="preview-coin" style="background: url('coin.png') center center / cover; font-size: 0;"></div>
+                
+                <div class="coin-image-container">
+                    <div class="preview-coin" style="background: url('coin.png') center center / cover; font-size: 0;"></div>
+                </div>
+                
+                <div class="preview-coin">🎓💰</div>
                 <div class="preview-ticker">$FINAL</div>
+
                 <div class="preview-buttons">
                     <button class="preview-btn red">BUY ON PUMP.FUN</button>
-                    <button class="preview-btn green">LEARN MORE</button>
                 </div>
             </div>
         </div>
