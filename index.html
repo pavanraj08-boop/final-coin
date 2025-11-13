@@ -21,7 +21,7 @@
             box-sizing: border-box;
         }
 
-        /* --- Body Background (Using image_e8ea00.jpg - graduation scene) --- */
+        /* --- Body Background (Using image_e8ea00.jpg) --- */
         body {
             font-family: 'Fira Sans', sans-serif;
             color: var(--text-color);
@@ -30,7 +30,7 @@
             position: relative;
             
             /* Background Image (Using image_e8ea00.jpg as the continuous background) */
-            background-image: url('image_e8ea00.jpg'); 
+            background-image: url('banner.jpg'); 
             background-size: cover; 
             background-attachment: fixed; 
             background-position: center center;
@@ -62,7 +62,7 @@
         }
 
         .loader-text {
-            color: var(--text-color); 
+            color: var(--text-color); /* White */
             font-size: 2em;
             font-family: 'Righteous', cursive;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
@@ -70,7 +70,7 @@
         }
 
         .loader-subtitle {
-            color: var(--text-color); 
+            color: var(--text-color); /* White */
             font-size: 1.2em;
             font-family: 'Fira Sans', sans-serif;
             opacity: 0.8;
@@ -81,36 +81,6 @@
             from { transform: scale(1); opacity: 0.8; }
             to { transform: scale(1.05); opacity: 1; }
         }
-
-        /* --- NEW: Title Animation Keyframes (Flicker/Glow) --- */
-        @keyframes neonFlicker {
-            0%, 100% { 
-                text-shadow: 0 0 10px var(--primary-color), 
-                             0 0 20px var(--primary-color), 
-                             0 0 30px #fff; 
-                opacity: 1;
-            }
-            5% { opacity: 0.95; }
-            10% { 
-                text-shadow: 0 0 8px var(--primary-color), 
-                             0 0 16px var(--primary-color), 
-                             0 0 25px #fff; 
-                opacity: 1;
-            }
-            15%, 70% { 
-                text-shadow: 0 0 15px var(--primary-color), 
-                             0 0 25px var(--primary-color), 
-                             0 0 40px #fff; 
-                opacity: 0.9;
-            }
-            75% { opacity: 1; }
-        }
-        
-        /* NEW: Class for the Animated Title */
-        .animated-title {
-            animation: neonFlicker 4s infinite alternate;
-        }
-
 
         /* --- Layout & Readability Adjustments --- */
         .container {
@@ -148,10 +118,11 @@
             margin: 0 auto 40px auto;
         }
 
-        /* --- 1. Banner (Image Only) --- */
+        /* --- 1. Banner --- */
         .hero-banner {
             position: relative;
-            height: auto; /* Allows image height to define container height */
+            height: auto; 
+            overflow: hidden;
             margin-bottom: 60px;
             border-radius: 15px;
             box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
@@ -162,6 +133,23 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Banner Title Specifics (Top Center) */
+        .banner-title {
+            position: absolute; 
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%); 
+            z-index: 10; 
+            
+            font-family: 'Righteous', cursive;
+            font-size: 3em; 
+            color: #333; /* Simple dark color */
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8), 
+                         -2px -2px 5px rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
 
         /* --- 2. Coin Details (Hero Preview) --- */
         .why-section {
@@ -242,8 +230,101 @@
             margin: 0 10px;
             text-transform: uppercase;
         }
-        
-        /* ... (Buttons styles omitted for brevity, they remain the same) ... */
+
+        .preview-buttons .red {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+
+        .preview-buttons .green {
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .preview-buttons .red:hover {
+            box-shadow: 0 0 20px var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .preview-buttons .green:hover {
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- 3. GAME (Meme Section) --- */
+        .meme-section {
+            padding: 60px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 60px 0;
+        }
+
+        /* Game specific adjustments */
+        #gameCanvas {
+            border: 5px solid var(--primary-color);
+            background-color: #f0f0f0; 
+            margin: 20px auto;
+            display: block;
+            border-radius: 5px;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .game-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-transform: uppercase;
+            font-family: 'Fira Sans', sans-serif;
+            box-shadow: 0 0 5px var(--secondary-color);
+        }
+
+        .game-btn:hover {
+            background-color: #FF5A73;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--secondary-color);
+        }
+
+        /* --- 4. Stats Section --- */
+        .stats-section {
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1 1 200px;
+            min-width: 200px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--secondary-color);
+        }
+
+        .stat-number {
+            font-family: 'Righteous', cursive;
+            font-size: 2.5em;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
 
         /* --- 5. Articles (Reality Section) --- */
         .reality-section {
@@ -273,14 +354,80 @@
             background-position: center;
         }
 
-        /* --- FINAL MEME Image Placeholders for Articles --- */
-        /* NOTE: You must have these files in the same directory as your HTML */
+        /* Placeholder Images */
         .debt-img { background-image: url('debt.jpg'); } 
         .layoffs-img { background-image: url('Layoffs.jpg'); } 
-        .jobs-img { background-image: url('Frosen.jpg'); } 
+        .jobs-img { background-image: url('Frozen.jpg'); }
+        .genz-image{ background-image: url('Gen.jpg'); }
         
         .article-content {
             padding: 20px;
+        }
+        
+        /* --- 6. About (Why Text) --- */
+        .why-text {
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 60px;
+        }
+        
+        .why-text h2 {
+            font-family: 'Righteous', cursive;
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* --- 7. How to Buy --- */
+        .how-to-buy {
+            padding: 60px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* --- 8. Socials --- */
+        .socials-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .socials-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            color: var(--text-color);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Righteous', cursive;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            box-shadow: 0 0 20px var(--primary-color);
         }
         
         /* --- 9. Footer --- */
@@ -296,8 +443,11 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2em;
+            }
             .hero-banner {
-                height: auto; 
+                height: 300px;
             }
         }
     </style>
@@ -308,35 +458,36 @@
 
     <div id="loadingScreen">
         <div class="loader-text">Final Semester</div>
-        <div class="loader-subtitle">one last try before i start working 2 jobs</div>
+        <div class="loader-subtitle">One Last Try Before I Start Working 2 Jobs</div>
     </div>
 
     <div class="container">
-        
-        <div style="text-align: center; margin-bottom: 60px; padding-top: 60px;">
-            <h1 class="animated-title" 
-                style="font-family: 'Righteous', cursive; font-size: 3.5em; color: var(--text-color);">
+        <div style="text-align: center; margin-bottom: 30px; padding-top: 20px;">
+            <h1 style="font-family: 'Righteous', cursive; font-size: 3.5em; color: var(--text-color); text-shadow: 0 0 15px var(--primary-color);">
                 Final Semester: The Last Braincell Is Typing...
             </h1>
         </div>
-
+        
         <div class="hero-banner">
             <img src="banner.jpg" alt="Final Semester Banner" class="banner-image">
+        </div>
+            
+            <h1 class="banner-title">Final Semester: The Last Braincell Is Typing...</h1>
         </div>
 
         <div class="why-section">
             <div class="hero-preview full-width">
                 <div class="section-header">💵 $FINAL COIN DETAILS 💵</div>
                 
-                <h1 class="preview-title">WHY $FINAL</h1>
+                <h1 class="preview-title">$FINAL</h1>
                 
                 <div class="coin-image-container">
                     <img src="coin.png" alt="$FINAL Coin Preview">
                 </div>
                 
-                <div class="preview-coin"> style="background: url('coin.png') center center / cover; font-size: 0;"></div>
+                <div class="preview-coin" style="background: url('coin.png') center center / cover; font-size: 0;"></div>
                 <div class="preview-ticker">$FINAL</div>
-                
+
                 <div class="contract-address" onclick="navigator.clipboard.writeText('YOUR_COIN_CONTRACT_ADDRESS_HERE_TO_COPY')">
                     CA: **YOUR\_COIN\_CONTRACT\_ADDRESS\_HERE** (Click to Copy)
                 </div>
@@ -418,7 +569,7 @@
                     </div>
                 </div>
                 <div class="article-card">
-                    <div class="article-image debt-img"></div>
+                    <div class="article-image genz-image"></div>
                     <div class="article-content">
                         <h3 class="article-title">Gen Z Faces 31% Student Loan Default Rate</h3>
                         <p class="article-description">Gen Z's financial crisis includes delayed life milestones and a complete reshaping of education finance.</p>
