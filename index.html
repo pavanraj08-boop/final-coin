@@ -340,7 +340,9 @@
         .article-card {
             border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* ADD border-color to transition */
+            border: 2px solid rgba(57, 255, 20, 0.4); /* ADD a subtle border */
+            background: var(--background-translucent); /* Keep the translucent background */
         }
 
         .article-card:hover {
@@ -464,7 +466,7 @@
     <div class="container">
         <div style="text-align: center; margin-bottom: 30px; padding-top: 20px;">
             <h1 style="font-family: 'Righteous', cursive; font-size: 3.5em; color: var(--text-color); text-shadow: 0 0 15px var(--primary-color);">
-                Final Semester: The Last Braincell Is Typing...
+
             </h1>
         </div>
         
