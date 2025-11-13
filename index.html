@@ -30,7 +30,7 @@
             position: relative;
             
             /* Background Image */
-            background-image: url('banner.jpg'); /* ⚠️ CHANGE: Check this image name (image_e8ea00.jpg) */
+            background-image: url('banner.jpg'); 
             background-size: cover; 
             background-attachment: fixed; 
             background-position: center center;
@@ -39,8 +39,8 @@
             background-blend-mode: overlay; 
             background-color: rgba(0, 0, 0, 0.6); 
             
-            /* ADDED: Full Website Border and Glow */
-            border: 5px solid var(--primary-color);
+            /* UPDATED: Full Website Border changed to White */
+            border: 5px solid var(--text-color); /* Uses White */
             box-shadow: 0 0 50px rgba(255, 255, 255, 0.2) inset, 0 0 50px rgba(255, 255, 255, 0.2);
         }
 
@@ -126,8 +126,8 @@
         .socials-section .social-btn {
             background: var(--background-translucent); 
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(250, 250, 250, 0.2); 
-            box-shadow: 0 0 15px rgba(253, 253, 253, 0.2); 
+            border: 1px solid rgba(57, 255, 20, 0.4); 
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3); 
             transition: all 0.3s;
         }
 
@@ -151,7 +151,7 @@
             height: auto; 
             margin-bottom: 60px;
             border-radius: 15px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
         }
 
         .banner-image {
@@ -349,7 +349,7 @@
         .article-card:hover {
             transform: translateY(-5px);
             /* FINAL BORDER GLOW */
-            box-shadow: 0 0 25px var(--primary-color), 0 0 40px rgba(253, 253, 253, 0.6); 
+            box-shadow: 0 0 25px var(--primary-color), 0 0 40px rgba(57, 255, 20, 0.6); 
             border-color: var(--primary-color); 
         }
 
@@ -360,7 +360,6 @@
         }
 
         /* --- FINAL MEME Image Placeholders for Articles (4 unique classes) --- */
-        /* ⚠️ CHANGE: Check these image names */
         .debt-img { background-image: url('debt.jpg'); } 
         .layoffs-img { background-image: url('Layoffs.jpg'); } 
         .jobs-img { background-image: url('Frozen.jpg'); } 
@@ -524,7 +523,6 @@
                 <p class="preview-tagline">The Coin for Every Student Fighting the System</p>
                 <div class="preview-buttons">
                     <button class="preview-btn" style="background-color: var(--secondary-color); color: white;">BUY ON PUMP.FUN</button>
-                    <button class="preview-btn" style="background-color: var(--primary-color); color: black;">LEARN MORE</button>
                 </div>
             </div>
         </div>
