@@ -289,7 +289,7 @@
 
         .game-btn:hover {
             opacity: 0.8;
-            box-shadow: 0 0 10px var(--primary-color);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
         }
 
         /* Stats Section */
@@ -700,6 +700,42 @@
         const jumpPower = -15;
         const ground = 250;
 
+        / Draw Sky Background (New Feature)
+        function drawSky() {
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#87CEEB'); // Light blue sky
+            gradient.addColorStop(0.7, '#6495ED'); // Deeper blue
+            gradient.addColorStop(1, '#B0E0E6'); // Horizon color (lighter)
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Draw Clouds (New Feature)
+        function drawCloud(cloud) {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Semi-transparent white clouds
+            ctx.beginPath();
+            ctx.arc(cloud.x, cloud.y, cloud.size, 0, Math.PI * 2);
+            ctx.arc(cloud.x + cloud.size * 0.8, cloud.y + cloud.size * 0.2, cloud.size * 1.1, 0, Math.PI * 2);
+            ctx.arc(cloud.x - cloud.size * 0.7, cloud.y + cloud.size * 0.3, cloud.size * 0.9, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // Draw Birds (New Feature)
+        function drawBird(bird) {
+            ctx.strokeStyle = '#333333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(bird.x, bird.y);
+            ctx.lineTo(bird.x + 10, bird.y + 10);
+            ctx.lineTo(bird.x + 20, bird.y);
+            ctx.moveTo(bird.x + 15, bird.y); // Second wing for a flock effect
+            ctx.lineTo(bird.x + 25, bird.y + 10);
+            ctx.lineTo(bird.x + 35, bird.y);
+            ctx.stroke();
+        }
+
+
         function drawPlayer() {
             // Draw student (simple stick figure with graduation cap)
             ctx.fillStyle = '#FFC300'; 
@@ -714,7 +750,6 @@
             ctx.fillStyle = '#FFD700';
             ctx.fillRect(player.x + 10, player.y + 5, 20, 20);
         }
-
         function drawObstacle(obs) {
             // Draw debt monster (scary skull emoji)
             ctx.fillStyle = '#39FF14'; // Neon Green
