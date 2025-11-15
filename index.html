@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$FINAL - Final Semester Coin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous:wght@400;700&family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* General Setup - NEON GREEN AESTHETIC RESTORED */
         :root {
@@ -30,7 +30,7 @@
             position: relative;
             
             /* Background Image */
-            background-image: url('banner.jpg'); 
+            background-image: url('image_e8ea00.jpg'); 
             background-size: cover; 
             background-attachment: fixed; 
             background-position: center center;
@@ -135,6 +135,14 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
             transition: all 0.3s;
         }
+        
+        /* Adjusted specifically for the Coin Details and Tokenomics boxes */
+        .why-text {
+            /* Kept the general translucent style for Tokenomics/About */
+            padding: 40px;
+            margin: 60px 0;
+            border-radius: 10px;
+        }
 
         .section-header {
             font-family: 'Righteous', cursive;
@@ -167,16 +175,23 @@
             border-radius: 15px;
         }
 
-        /* Coin Details (Hero Preview) */
+        /* Coin Details (Hero Preview) - UPDATED FOR SMALLER SIZE AND MORE FADING */
         .why-section {
             display: block; 
             margin: 60px 0;
         }
 
         .hero-preview {
-            padding: 40px;
+            padding: 25px; /* Reduced padding */
             border-radius: 10px;
             text-align: center;
+            max-width: 600px; /* Reduced width */
+            margin: 0 auto;  /* Center the block */
+            background: rgba(0, 0, 0, 0.6); /* Slightly more transparent */
+            backdrop-filter: blur(4px); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+            transition: all 0.3s;
         }
 
         .coin-image-container {
@@ -267,8 +282,6 @@
             display: block;
             margin: 20px auto;
             border: 2px solid var(--primary-color);
-            /* IMPORTANT: The background is now drawn via JavaScript, 
-               but this border and shadow should remain for the frame */
             background-color: transparent; 
         }
 
@@ -373,7 +386,7 @@
         .debt-img { background-image: url('debt.jpg'); } 
         .layoffs-img { background-image: url('Layoffs.jpg'); } 
         .jobs-img { background-image: url('Frozen.jpg'); } 
-        .genz-img { background-image: url('Gen.jpg'); } 
+        .genz-img { background-image: url('GenZ_Meme.jpg'); } 
         
         .article-content {
             padding: 20px;
@@ -399,12 +412,6 @@
         }
 
         /* About Section */
-        .why-text {
-            padding: 40px;
-            margin: 60px 0;
-            border-radius: 10px;
-        }
-
         .why-text h2 {
             font-family: 'Righteous', cursive;
             font-size: 2em;
@@ -439,6 +446,12 @@
             font-size: 1.5em;
             color: var(--secondary-color);
             margin-bottom: 10px;
+        }
+        
+        /* Tokenomics Specific List Styling */
+        .why-text ul {
+            padding-left: 0;
+            list-style: none;
         }
 
         /* Socials Section */
@@ -510,28 +523,29 @@
         </div>
 
         <div class="hero-banner">
-            <img src="banner.jpg" alt="Final Semester Banner" class="banner-image">
+            <img src="image_edbbcd.jpg" alt="Final Semester Banner" class="banner-image">
         </div>
 
         <div class="why-section">
-            <div class="hero-preview full-width">
-                <div class="section-header">💵 $FINAL COIN DETAILS 💵</div>
+            <div class="hero-preview"> <div class="section-header">💵 $FINAL COIN DETAILS 💵</div>
                 
                 <h1 class="preview-title">WHY $FINAL</h1>
                 
                 <div class="coin-image-container">
-                    <img src="coin.png" alt="$FINAL Coin Preview">
+                    <img src="image_ee348c.jpg" alt="$FINAL Coin Preview">
                 </div>
                 
-                <div class="preview-coin" style="background: url('coin.png') center center / cover; font-size: 0;"></div>
+                <div class="preview-coin">🎓💰</div>
                 <div class="preview-ticker">$FINAL</div>
                 
                 <div class="contract-address" onclick="navigator.clipboard.writeText('YOUR_COIN_CONTRACT_ADDRESS_HERE_TO_COPY')">
                     CA: **YOUR\_COIN\_CONTRACT\_ADDRESS\_HERE** (Click to Copy)
                 </div>
 
+                <p class="preview-tagline">The Coin for Every Student Fighting the System</p>
                 <div class="preview-buttons">
                     <a href="YOUR_PUMP_FUN_URL_HERE" target="_blank" class="preview-btn" style="background-color: var(--secondary-color); color: white; text-decoration: none; display: inline-block;">BUY ON PUMP.FUN</a>
+                    <button class="preview-btn" style="background-color: var(--primary-color); color: black;">LEARN MORE</button>
                 </div>
             </div>
         </div>
@@ -649,11 +663,52 @@
                 </div>
             </div>
         </div>
+        
+        <div class="why-section">
+            <div class="why-text full-width">
+                <div class="section-header">🧠 Tokenomics – The Most Honest Version You’ll Ever Read 🧠</div>
+                <p>
+                    This coin doesn’t come from a company, a VC fund, or a marketing team.
+                    It comes from a student desk, between assignments and anxiety.
+                </p>
 
+                <h2 style="color: var(--primary-color); margin-top: 20px; font-family: 'Righteous', cursive; font-size: 1.5em;">Structure:</h2>
+                <ul>
+                    <li style="list-style: none; margin-bottom: 5px;">
+                        <span style="color: var(--secondary-color); font-weight: bold;">Total Supply:</span> **(YOUR SUPPLY HERE)**
+                    </li>
+                    <li style="list-style: none; margin-bottom: 5px;">
+                        <span style="color: var(--secondary-color); font-weight: bold;">Dev Tokens:</span> All dev tokens will be burned gradually on the journey. I don’t want them.
+                    </li>
+                    <li style="list-style: none; margin-bottom: 5px;">
+                        <span style="color: var(--secondary-color); font-weight: bold;">Creator Rewards:</span> My only lifeline. The ONLY thing I hope to earn from this coin.
+                    </li>
+                    <li style="list-style: none; margin-bottom: 5px;">
+                        <span style="color: var(--secondary-color); font-weight: bold;">Liquidity:</span> Added with whatever I can afford from my part-time student money & locked.
+                    </li>
+                </ul>
+
+                <h2 style="color: var(--primary-color); margin-top: 20px; font-family: 'Righteous', cursive; font-size: 1.5em;">Key Principles:</h2>
+                <ul style="list-style-type: '💥 '; padding-left: 20px; margin-bottom: 20px;">
+                    <li>No Presale</li>
+                    <li>No Team</li>
+                    <li>No Bonuses</li>
+                    <li>No Hidden Wallets</li>
+                </ul>
+
+                <p style="font-size: 1.1em; font-style: italic;">
+                    Every part of this token is built around a single reality:<br>
+                    I’m trying to survive college without drowning in debt.
+                </p>
+                <p style="font-weight: bold; margin-top: 15px;">
+                    That’s the tokenomics. No fancy diagrams, no complicated structures.
+                </p>
+            </div>
+        </div>
         <div class="socials-section">
             <div class="section-header">🌐 CONNECT & TRADE 🌐</div>
             <div class="socials-grid">
-                <a href="https://x.com/pavan_rajr" class="social-btn" target="_blank" style="background-color: var(--primary-color); color: black;">
+                <a href="#" class="social-btn" target="_blank" style="background-color: var(--primary-color); color: black;">
                     <span>𝕏</span>
                     <span>X/TWITTER</span>
                 </a>
@@ -676,7 +731,7 @@
             document.getElementById('loadingScreen').style.display = 'none';
         }, 2500);
 
-        // --- GAME CODE (Updated with Colorful Background and Elements) ---
+        // --- GAME CODE (Updated with Colorful Background and Elements and Speed Increase) ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const startBtn = document.getElementById('startBtn');
@@ -708,14 +763,14 @@
         // Obstacles (Debt Monsters)
         let obstacles = [];
         let obstacleTimer = 0;
-        let gameSpeed = 5;
+        let gameSpeed = 7; // INCREASED INITIAL SPEED FOR MOBILE PERFORMANCE
 
         // Game constants
         const gravity = 0.8;
         const jumpPower = -15;
         const ground = 250;
 
-        // Draw Sky Background (New Feature)
+        // Draw Sky Background
         function drawSky() {
             const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
             gradient.addColorStop(0, '#87CEEB'); // Light blue sky
@@ -725,7 +780,7 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
-        // Draw Clouds (New Feature)
+        // Draw Clouds
         function drawCloud(cloud) {
             ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Semi-transparent white clouds
             ctx.beginPath();
@@ -736,7 +791,7 @@
             ctx.fill();
         }
 
-        // Draw Birds (New Feature)
+        // Draw Birds
         function drawBird(bird) {
             ctx.strokeStyle = '#333333';
             ctx.lineWidth = 2;
@@ -749,7 +804,6 @@
             ctx.lineTo(bird.x + 35, bird.y);
             ctx.stroke();
         }
-
 
         function drawPlayer() {
             // Draw student (simple stick figure with graduation cap)
@@ -844,7 +898,7 @@
                     height: 40
                 });
                 obstacleTimer = 0;
-                gameSpeed += 0.1; // Increase speed slightly
+                gameSpeed += 0.2; // INCREASED SPEED INCREMENT
             }
         }
 
@@ -911,7 +965,7 @@
             player.y = ground - player.height;
             player.jumping = false;
             player.velocityY = 0;
-            gameSpeed = 5;
+            gameSpeed = 7; // Reset speed to the new, faster starting value
             obstacleTimer = 0;
 
             // Reset background elements
